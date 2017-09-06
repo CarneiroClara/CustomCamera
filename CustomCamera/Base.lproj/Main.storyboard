@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="CustomCamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLK-3j-g3N" userLabel="Capture">
+                                <rect key="frame" x="142" y="557" width="90" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="c0R-RK-dng"/>
+                                    <constraint firstAttribute="width" constant="90" id="xoO-kF-egc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCQ-bA-bwh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fez-4y-5aO" userLabel="Camera">
+                                <rect key="frame" x="251" y="587" width="60" height="60"/>
+                                <state key="normal" backgroundImage="CameraFrontal"/>
+                                <connections>
+                                    <action selector="positionButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Spi-Cj-uWo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-CM-Zes" userLabel="Flash">
+                                <rect key="frame" x="63" y="587" width="60" height="60"/>
+                                <state key="normal" backgroundImage="Flash"/>
+                                <connections>
+                                    <action selector="flashButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uMx-Ah-Idw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rLK-3j-g3N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0SI-ou-9np"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fez-4y-5aO" secondAttribute="trailing" constant="48" id="2mu-VV-MZh"/>
+                            <constraint firstItem="fez-4y-5aO" firstAttribute="bottom" secondItem="rLK-3j-g3N" secondAttribute="bottom" id="4lX-Hd-V87"/>
+                            <constraint firstItem="fez-4y-5aO" firstAttribute="leading" secondItem="rLK-3j-g3N" secondAttribute="trailing" constant="19" id="DGo-1m-eIp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rLK-3j-g3N" secondAttribute="bottom" constant="20" id="HN8-Td-cyS"/>
+                            <constraint firstItem="rLK-3j-g3N" firstAttribute="leading" secondItem="LFN-CM-Zes" secondAttribute="trailing" constant="19" id="gDG-A0-Apc"/>
+                            <constraint firstItem="LFN-CM-Zes" firstAttribute="bottom" secondItem="rLK-3j-g3N" secondAttribute="bottom" id="ooN-5I-C76"/>
+                            <constraint firstItem="LFN-CM-Zes" firstAttribute="top" secondItem="rLK-3j-g3N" secondAttribute="top" constant="30" id="psN-9M-RX3"/>
+                            <constraint firstItem="LFN-CM-Zes" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="47" id="qXo-5C-hJy"/>
+                            <constraint firstItem="fez-4y-5aO" firstAttribute="top" secondItem="rLK-3j-g3N" secondAttribute="top" constant="30" id="u1u-Vy-Lri"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flashButton" destination="LFN-CM-Zes" id="9eU-hk-nzh"/>
+                        <outlet property="positionButton" destination="fez-4y-5aO" id="s6T-9X-GYf"/>
+                        <segue destination="dci-pt-WGn" kind="presentation" identifier="showPhoto_segue" id="6ab-LC-qwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="LnQ-vi-PcR">
+            <objects>
+                <viewController id="dci-pt-WGn" customClass="PreviewViewController" customModule="CustomCamera" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdf-nD-e6c"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Oy-1b-UnY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cPv-Op-xBk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-RW-5Xk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mrn-oy-g35">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8mb-dO-6OK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeR-ng-eZZ">
+                                <rect key="frame" x="16" y="20" width="48" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtoun_TouchUpInside:" destination="dci-pt-WGn" eventType="touchUpInside" id="OC6-Az-OcT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8n-8h-05O">
+                                <rect key="frame" x="325" y="20" width="34" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton_TouchUpInside:" destination="dci-pt-WGn" eventType="touchUpInside" id="xTu-br-Ulu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mrn-oy-g35" firstAttribute="top" secondItem="cPv-Op-xBk" secondAttribute="top" id="0ra-Fm-oz0"/>
+                            <constraint firstItem="eBP-RW-5Xk" firstAttribute="top" secondItem="cPv-Op-xBk" secondAttribute="top" id="5Fq-CI-qgk"/>
+                            <constraint firstItem="m8n-8h-05O" firstAttribute="trailing" secondItem="cPv-Op-xBk" secondAttribute="trailingMargin" id="7Wh-rf-Wsd"/>
+                            <constraint firstItem="eBP-RW-5Xk" firstAttribute="leading" secondItem="cPv-Op-xBk" secondAttribute="leading" id="Fku-b9-ole"/>
+                            <constraint firstItem="5Oy-1b-UnY" firstAttribute="top" secondItem="SeR-ng-eZZ" secondAttribute="bottom" constant="617" id="O71-5l-Qxz"/>
+                            <constraint firstItem="5Oy-1b-UnY" firstAttribute="top" secondItem="eBP-RW-5Xk" secondAttribute="bottom" id="cQV-NS-4eG"/>
+                            <constraint firstItem="Mrn-oy-g35" firstAttribute="leading" secondItem="cPv-Op-xBk" secondAttribute="leading" id="i1Q-FB-nYC"/>
+                            <constraint firstItem="SeR-ng-eZZ" firstAttribute="leading" secondItem="cPv-Op-xBk" secondAttribute="leadingMargin" id="oql-Iq-ROe"/>
+                            <constraint firstItem="SeR-ng-eZZ" firstAttribute="top" secondItem="kdf-nD-e6c" secondAttribute="bottom" id="rd4-yc-ZxG"/>
+                            <constraint firstItem="m8n-8h-05O" firstAttribute="top" secondItem="kdf-nD-e6c" secondAttribute="bottom" id="spB-eh-LzM"/>
+                            <constraint firstItem="eBP-RW-5Xk" firstAttribute="centerY" secondItem="cPv-Op-xBk" secondAttribute="centerY" id="tRs-jv-RP9"/>
+                            <constraint firstItem="eBP-RW-5Xk" firstAttribute="centerX" secondItem="cPv-Op-xBk" secondAttribute="centerX" id="tp6-mV-GSN"/>
+                            <constraint firstItem="5Oy-1b-UnY" firstAttribute="top" secondItem="m8n-8h-05O" secondAttribute="bottom" constant="617" id="xCk-ln-ehl"/>
+                            <constraint firstAttribute="trailing" secondItem="eBP-RW-5Xk" secondAttribute="trailing" id="xop-g7-hFQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Mrn-oy-g35" secondAttribute="trailing" id="y6Z-kH-uun"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photo" destination="eBP-RW-5Xk" id="RHq-AA-Q0Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2y-9r-Pj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="878.41079460269873"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CameraFrontal" width="40" height="40"/>
+        <image name="Flash" width="40" height="40"/>
+    </resources>
+</document>
